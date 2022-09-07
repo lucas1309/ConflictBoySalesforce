@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <form>
-            <label for="myFile"> Select the Profile Metadata </label><br>
-            <input type="file" id="thefile" name="myfile" accept=".xml">
+        <form id="form">
+            <label for="myFile"> Select the Profile Metadata </label><br><br>
+            First Profile: <input type="file" id="firstFile" name="myfile" accept=".xml"><br>
+            Second Profile: <input type="file" id="secondFile" name="myfile" accept=".xml"><br><br>
+            <input type="button" value="CheckVar" onclick="checkVar()">
+            <input type="submit" value="HelpMe" label="HELP ME">
         </form>
         <script type="text/javascript" src="main.js"></script>   
     </body>
