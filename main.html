@@ -1,7 +1,26 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Hello World</h1>
-<p>Teste Jigjin.</p>
+    <form>
+        <label for="myFile"> Select the Profile Metadata </label><br>
+        <input type="file" id="thefile" name="myfile" accept=".xml">
+    </form>
+    <script type="text/javascript">
+        const originalProfileField = document.getElementById('thefile');
+
+        originalProfileField.addEventListener('change', (event) => {
+            const OriginalProfile = event.target.files[0];
+            const reader = new FileReader();
+            console.log('Name:'+ OriginalProfile.name);
+            console.log('Size:'+ OriginalProfile.size);
+            console.log('Type:'+ OriginalProfile.type);
+            reader.readAsText(OriginalProfile)
+            reader.onload = function() {
+                console.log('Blob:'+ reader.result);
+            }
+            
+        })
+    </script>
+    
 </body>
 </html>
