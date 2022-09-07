@@ -5,9 +5,13 @@ localStorage.clear();
 
 function filterJsonTrash(json)
 {
-    if (json.CustomField["#text"]) 
+    jsonProfile = json.Profile;
+    if (jsonProfile["#text"]) 
     {
-        delete json.CustomField["#text"];
+        delete jsonProfile["#text"];
+        console.log('json.userPermissions: '+jsonProfile.userPermissions);
+        for( let i = 0; i<jsonProfile.userPermissions.length; i++) { delete jsonProfile.userPermissions[i]["#text"]; }
+        
     }
     return json;
 }
@@ -98,6 +102,7 @@ newProfileField.addEventListener('change', (event) => {
 function diffJsons(jsonOld,jsonNew)
 {
     console.log('Entered diffJsons');
+
     //For each node of the NEW, look at the old
     // then for each node of the old, search at the new
 
